@@ -140,9 +140,9 @@ angular.module('app').service('c3Charts', function () {
                 height: chart.height,
             },
             tooltip: {
-              order: function (t1, t2) {
-                return t1.id > t2.id;
-              }
+                order: function (t1, t2) {
+                    return t1.id > t2.id;
+                }
             }
         };
 
