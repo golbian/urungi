@@ -163,11 +163,11 @@ angular.module('app', [
             controller: 'logOutCtrl'
         });
         // spaces
-        $routeProvider.when('/public-space', {
+        $routeProvider.when('/shared-space', {
             templateUrl: 'partials/spaces/index.html',
             controller: 'spacesCtrl'
         });
-        $routeProvider.when('/public-space/:extra', {
+        $routeProvider.when('/shared-space/:extra', {
             templateUrl: 'partials/spaces/index.html',
             controller: 'spacesCtrl'
         });

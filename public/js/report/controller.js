@@ -219,7 +219,7 @@ angular.module('app').controller('reportCtrl', function ($scope, connection, $co
         }
 
         if (!params.fields) {
-            params.fields = ['reportName', 'reportType', 'isPublic', 'owner', 'reportDescription', 'author', 'createdOn'];
+            params.fields = ['reportName', 'reportType', 'isPublic', 'isShared', 'owner', 'reportDescription', 'author', 'createdOn'];
         }
 
         if (!params.page) {
@@ -396,9 +396,23 @@ angular.module('app').controller('reportCtrl', function ($scope, connection, $co
     };
 
     $scope.publishReport = function () {
-        $scope.objectToPublish = $scope.selectedReport;
+        $scope.objectToShare = $scope.selectedReport;
         $('#publishModal').modal('show');
     };
+
+    $scope.shareReport = function () {
+        $scope.objectToShare = $scope.selectedReport;
+        $('#publishModal').modal('show');
+    };
+
+    $scope.Publish = function(){
+      const url = '/api/reports/publish-report';
+      const params = {_id: $scope.selectedReport._id};
+      return connection.post(url, params).then(function () {
+          $scope.selectedReport.isPublic = true;
+          $('#publishModal').modal('show');
+      });
+  };
 
     $scope.unPublish = function () {
         return connection.post('/api/reports/unpublish', {_id: $scope.selectedReport._id}).then(function () {
@@ -407,13 +421,20 @@ angular.module('app').controller('reportCtrl', function ($scope, connection, $co
         });
     };
 
+    $scope.unShare = function () {
+        return connection.post('/api/reports/unshare', {_id: $scope.selectedReport._id}).then(function () {
+            $scope.selectedReport.isShared = false;
+            $('#publishModal').modal('hide');
+        });
+    };
+
     $scope.selectThisFolder = function (folderID) {
-        const url = '/api/reports/publish-report';
+        const url = '/api/reports/share-report';
         const params = {_id: $scope.selectedReport._id, parentFolder: folderID};
 
         return connection.post(url, params).then(function () {
             $scope.selectedReport.parentFolder = folderID;
-            $scope.selectedReport.isPublic = true;
+            $scope.selectedReport.isShared = true;
             $('#publishModal').modal('hide');
         });
     };
