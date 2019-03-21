@@ -3,7 +3,7 @@ module.exports = {
         const Companies = db.collection('wst_Companies');
         const companies = await Companies.find().toArray();
         for (const company of companies) {
-            company.publicSpace = company.publicSpace.filter(function isNotReportOrDashboard (node) {
+            company.sharedSpace = company.sharedSpace.filter(function isNotReportOrDashboard (node) {
                 if (node.nodes) {
                     node.nodes = node.nodes.filter(isNotReportOrDashboard);
                 }

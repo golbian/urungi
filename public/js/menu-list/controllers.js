@@ -96,6 +96,7 @@ angular.module('app').controller('listCtrl', function ($scope, $rootScope, conne
         $scope.nav.apiFetchUrl = '/api/reports/find-all';
         $scope.creationAuthorised = $scope.user.reportsCreate;
         $scope.nav.editButtons = true;
+        $scope.nav.copyButtons = true;
         $scope.nav.deleteButtons = true;
         $scope.nav.layerButtons = false;
         $scope.nav.itemsPerPage = 10;
@@ -126,7 +127,9 @@ angular.module('app').controller('listCtrl', function ($scope, $rootScope, conne
             itemClick: 'View this report',
             delete: 'Delete this report',
             duplicate: 'Duplicate this report',
-            edit: 'Edit this report'
+            edit: 'Edit this report',
+            copy: 'Copy this report'
+
         };
 
         $scope.nav.text = {
@@ -142,6 +145,18 @@ angular.module('app').controller('listCtrl', function ($scope, $rootScope, conne
         $scope.getEditLink = function (item) {
             return '/#/reports/edit/' + item._id;
         };
+
+        $scope.getCopyLink = function (item) {
+            const protocol = window.location.protocol;
+            const host = window.location.host;
+            return protocol+ '//' + host + '/#/reports/view/' + item._id;
+        };
+
+        $scope.Copylink = function copy($event) {
+            var copyText = $($event.target).siblings('input').get(0);
+            copyText.select();
+            document.execCommand("copy");
+        }
 
         $scope.duplicate = function () {
             $scope.duplicateOptions.freeze = true;
@@ -358,6 +373,18 @@ angular.module('app').controller('listCtrl', function ($scope, $rootScope, conne
         $scope.getEditLink = function (item) {
             return '/#/dashboards/edit/' + item._id;
         };
+
+        $scope.getCopyLink = function (item) {
+            const protocol = window.location.protocol;
+            const host = window.location.host;
+            return protocol + '//' + host + '/#/dashboards/view/' + item._id;
+        };
+
+        $scope.Copylink = function copy(event) {
+            var copyText = $(event.target).siblings('input').get(0);
+            copyText.select();
+            document.execCommand("copy");
+        }
 
         $scope.introOptions = {
             steps: [

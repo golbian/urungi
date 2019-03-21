@@ -1,6 +1,6 @@
 angular.module('app').controller('spacesCtrl', function ($scope, $rootScope, connection, uuid2, $routeParams, $timeout, gettextCatalog) {
     connection.get('/api/company/get-company-data').then(result => {
-        $scope.data = result.items.publicSpace;
+        $scope.data = result.items.sharedSpace;
     });
 
     if ($routeParams.extra === 'intro') {

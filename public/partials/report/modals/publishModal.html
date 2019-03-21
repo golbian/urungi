@@ -5,11 +5,12 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <button ng-if="objectToShare.isShared == true" class="btn btn-danger" ng-click="unShare()" translate>Unshare</button>
         <h4 ng-if="objectToShare.isShared == false" translate>Share</h4>
-        <button ng-if="objectToShare.isPublic == false" class="btn btn-succes" ng-click="Publish()" translate>Publish</button>
-        <button ng-if="objectToShare.isPublic == true" class="btn btn-danger" ng-click="unPublish()" translate>Unpublish</button>
     </div>
     <div class="modal-body">
         <p>{{modalOptions.bodyText}}</p>
+
+        <button ng-if="objectToShare.isPublic == false" uib-tooltip="Click here to publish your work (Even not logged users will see it)" class="btn btn-xs btn-success" ng-click="Publish()" translate>Publish</button>
+        <button ng-if="objectToShare.isPublic == true" class="btn btn-xs btn-danger" ng-click="unPublish()" translate>Unpublish</button>
 
         <div ng-if="isWSTADMIN" class="row">
             <span class="tree-node tree-node-content tree-node-folder" translate>root folder</span>
