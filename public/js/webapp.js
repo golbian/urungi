@@ -6,7 +6,7 @@ angular.module('app', [
     'urungi.directives', 'ngSanitize', 'ui.select', 'angularUUID2', 'vs-repeat',
     'ui.bootstrap.datetimepicker', 'ui.tree', 'page.block', 'bsLoadingOverlay', 'xeditable',
     'intro.help', 'ngFileUpload', 'colorpicker.module',
-    'wst.inspector', 'gettext', 'ngFileSaver'
+    'wst.inspector', 'gettext', 'ngFileSaver','ngclipboard'
 ])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.otherwise({redirectTo: '/home'});
