@@ -183,7 +183,7 @@ angular.module('app').service('grid', function () {
         var htmlCode = '';
 
         if (column.operationSum === true) {
-          console.log(column);
+            console.log(column);
             htmlCode += '<div  style=""><span class="calculus-label">SUM:</span><span class="calculus-value"> ' + numeral(calculateSumForColumn(column)).format(column.format) + '</span> </div>';
         }
 
