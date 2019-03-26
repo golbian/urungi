@@ -107,7 +107,7 @@ angular.module('app').service('grid', function () {
         var htmlCode = '';
 
         var theValue = '<div style="overflow:hidden;height:100%;">{{item.' + column.id + '}}</div>';
-        if (column.elementType === 'number') { theValue = '<div style="overflow:hidden;height:100%;">{{item.' + column.id + ' | number}}</div>'; }
+        if (column.elementType === 'number') { theValue = '<div style="overflow:hidden;height:100%;">{{item.' + column.id + '}}</div>'; }
 
         if (column.signals) {
             var theStyle = '<style>';
@@ -150,7 +150,7 @@ angular.module('app').service('grid', function () {
             }
             htmlCode += theStyle + '</style>';
 
-            if (column.elementType === 'number') { theValue = '<div ng-class="{' + theClass + '}" style="overflow:hidden;height:100%;" >{{item.' + column.id + ' | number}}</div>'; } else { theValue = '<div ng-class="{' + theClass + '}" style="overflow:hidden;height:100%;" >{{item.' + column.id + '}}</div>'; }
+            if (column.elementType === 'number') { theValue = '<div ng-class="{' + theClass + '}" style="overflow:hidden;height:100%;" >{{item.' + column.id + '}}</div>'; } else { theValue = '<div ng-class="{' + theClass + '}" style="overflow:hidden;height:100%;" >{{item.' + column.id + '}}</div>'; }
         }
 
         if (column.link) {
@@ -183,22 +183,24 @@ angular.module('app').service('grid', function () {
         var htmlCode = '';
 
         if (column.operationSum === true) {
-            htmlCode += '<div  style=""><span class="calculus-label">SUM:</span><span class="calculus-value"> ' + numeral(calculateSumForColumn(column)).format('0,0.00') + '</span> </div>';
+          console.log(column);
+            htmlCode += '<div  style=""><span class="calculus-label">SUM:</span><span class="calculus-value"> ' + numeral(calculateSumForColumn(column)).format(column.format) + '</span> </div>';
         }
 
         if (column.operationAvg === true) {
-            htmlCode += '<div  style=""><span class="calculus-label">AVG:</span><span class="calculus-value"> ' + numeral(calculateAvgForColumn(column)).format('0,0.00') + '</span> </div>';
+            htmlCode += '<div  style=""><span class="calculus-label">AVG:</span><span class="calculus-value"> ' + numeral(calculateAvgForColumn(column)).format(column.format) + '</span> </div>';
         }
 
         if (column.operationCount === true) {
-            htmlCode += '<div  style=""><span class="calculus-label">COUNT:</span><span class="calculus-value"> ' + numeral(calculateCountForColumn(column)).format('0,0.00') + '</span> </div>';
+            htmlCode += '<div  style=""><span class="calculus-label">COUNT:</span><span class="calculus-value"> ' + numeral(calculateCountForColumn(column)).format(column.format) + '</span> </div>';
         }
 
         if (column.operationMin === true) {
-            htmlCode += '<div  style=""><span class="calculus-label">MIN:</span><span class="calculus-value"> ' + numeral(calculateMinimumForColumn(column)).format('0,0.00') + '</span> </div>';
+            htmlCode += '<div  style=""><span class="calculus-label">MIN:</span><span class="calculus-value"> ' + numeral(calculateMinimumForColumn(column)).format(column.format) + '</span> </div>';
         }
+
         if (column.operationMax === true) {
-            htmlCode += '<div  style=""><span class="calculus-label">MAX:</span><span class="calculus-value"> ' + numeral(calculateMaximumForColumn(column)).format('0,0.00') + '</span> </div>';
+            htmlCode += '<div  style=""><span class="calculus-label">MAX:</span><span class="calculus-value"> ' + numeral(calculateMaximumForColumn(column)).format(column.format) + '</span> </div>';
         }
 
         return htmlCode;

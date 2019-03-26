@@ -465,7 +465,9 @@ function validatePage (page) {
 }
 
 function processData (query, data) {
+
     var moment = require('moment');
+    var numeral = require('numeral');
 
     for (var row of data) {
         for (var col of query.columns) {
@@ -474,6 +476,13 @@ function processData (query, data) {
                     row[col.id + '_original'] = row[col.id];
                     var date = new Date(row[col.id]);
                     row[col.id] = moment(date).format(col.format);
+                }
+            }
+            if (col.elementType === 'number' && col.format) {
+                if (row[col.id]) {
+                    row[col.id + '_original'] = row[col.id];
+                    var number = new Number(row[col.id]);
+                    row[col.id] = numeral(number).format(col.format);
                 }
             }
         }
