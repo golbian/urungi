@@ -72,7 +72,7 @@ gulp.task('dist:js', ['clean:js'], function () {
 
 gulp.task('dist:css', ['clean:css'], function () {
     const paths = [
-        'node_modules/bootstrap/dist/css/bootstrap.min.css',
+        'node_modules/bootstrap/dist/css/bootstrap.min.css'
         'node_modules/ui-select/dist/select.min.css',
         'node_modules/angular-bootstrap-datetimepicker/src/css/datetimepicker.css',
         'node_modules/angular-ui-tree/dist/angular-ui-tree.min.css',
@@ -87,6 +87,17 @@ gulp.task('dist:css', ['clean:css'], function () {
     return gulp.src(paths)
         .pipe(concat('bundle.min.css'))
         .pipe(gulp.dest('dist/css'));
+});
+
+  var customizeBootstrap = require('gulp-customize-bootstrap');
+  var less = require('gulp-less');
+
+gulp.task('compileBootstrap', function() {
+  return gulp.src('node_modules/bootstrap/less/*.less')
+    .pipe(customizeBootstrap('node_modules/bootstrap/less/print.less'))
+    .pipe(less())
+    .pipe(concat('bundle.min.css'))
+    .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('dist:fonts', ['clean:fonts'], function () {
