@@ -93,7 +93,7 @@ gulp.task('dist:css', ['clean:css'], function () {
   var less = require('gulp-less');
 
 gulp.task('compileBootstrap', function() {
-  return gulp.src('node_modules/bootstrap/less/*.less')
+  return gulp.src('node_modules/bootstrap/less/bootstrap.less')
     .pipe(customizeBootstrap('node_modules/bootstrap/less/print.less'))
     .pipe(less())
     .pipe(concat('bundle.min.css'))
