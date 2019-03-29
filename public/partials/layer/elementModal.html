@@ -61,6 +61,12 @@
 
                     <input id="field-3" class="form-control" ng-model="modalElement.viewExpression" required>
 
+                    <ul id="legend-field-3" class="scroll-list btn-group-vertical">
+                      <li ng-repeat="element in getElementsUsedInCustomExpression()">
+                    <p  class="card-text">{{'#' + element.elementID + '=' + element.elementLabel}}</p>
+                    </li>
+                    </ul>
+
                     <!-- <div exp-editor
                         class="form-control"
                         element-ref="modalElement.availableElements"
