@@ -1,0 +1,36 @@
+/**
+ * Print stylesheet for yourwebsite.com
+* @version         1.0
+* @lastmodified    16.06.2016
+*/
+
+@media print {
+  /** Setting margins */
+@page { margin: 2mm }
+
+  *:before,
+  *:after,
+
+.btn, .btn-success, button, a {
+    display: none !important;
+}
+
+input {
+    border-right: 1px solid #cccccc !important;
+    border-radius: 10px !important;
+}
+
+
+.form-group {
+    display : none;
+}
+
+
+/* Defining all page breaks */
+
+hr {
+    page-break-after: always;
+}
+
+
+}

@@ -8,7 +8,7 @@ angular.module('app').service('htmlWidgets', function () {
     };
 
     this.get4colsctaHTML = function () {
-        return '<div page-block class="container-fluid ndContainer" ndType="container">' +
+        return '<div page-block class="container-fluid ndContainer fourcol" ndType="container">' +
                     '<div  page-block class="col-md-3 ndContainer" ndtype="column" >' +
                         '<h3  page-block class="editable" ndType="header" >  A header text H3 </h3>' +
                         '<p page-block class="editable" ndType="paragraph">This is a simple text paragraph select to edit content.</p>' +
@@ -33,7 +33,7 @@ angular.module('app').service('htmlWidgets', function () {
     };
 
     this.get3colsctaHTML = function () {
-        return '<div page-block class="container-fluid ndContainer" ndType="container">' +
+        return '<div page-block class="container-fluid ndContainer threecol" ndType="container">' +
                     '<div  page-block class="col-md-4 ndContainer" ndtype="column" >' +
                         '<h3  page-block class="editable" ndType="header" >  A header text H3 </h3>' +
                         '<p page-block class="editable" ndType="paragraph">This is a simple text paragraph select to edit content.</p>' +
@@ -53,7 +53,7 @@ angular.module('app').service('htmlWidgets', function () {
     };
 
     this.get2colsctaHTML = function () {
-        return '<div page-block class="container-fluid ndContainer" ndType="container">' +
+        return '<div page-block class="container-fluid ndContainer twocol" ndType="container">' +
                     '<div  page-block class="col-md-6 ndContainer" ndtype="column" >' +
                         '<h3  page-block class="editable" ndType="header" >  A header text H3 </h3>' +
                         '<p page-block class="editable" ndType="paragraph">This is a simple text paragraph select to edit content.</p>' +
@@ -68,7 +68,7 @@ angular.module('app').service('htmlWidgets', function () {
     };
 
     this.getImageTextLargeHTML = function () {
-        return '<div page-block class="container-fluid featurette ndContainer"  ndType="container" >' +
+        return '<div page-block class="container-fluid featurette ndContainer imgText"  ndType="container" >' +
                     '<div page-block class="col-md-7 col-md-push-5 ndContainer" ndtype="column"  ndType="col" >' +
                         '<h2 page-block class="editable featurette-heading"  ndType="header" contenteditable="false">Oh yeah, it is that good. <span class="text-muted">See for yourself.</span></h2>' +
                         '<p page-block class="editable lead" contenteditable="false" ndType="paragraph">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>' +
@@ -80,7 +80,7 @@ angular.module('app').service('htmlWidgets', function () {
     };
 
     this.getTextImageLargeHTML = function () {
-        return '<div page-block class="container-fluid featurette ndContainer"  ndType="container" >' +
+        return '<div page-block class="container-fluid featurette ndContainer textImg"  ndType="container" >' +
                     '<div page-block class="col-md-7 ndContainer" ndtype="column"  ndType="col" >' +
                         '<h2 page-block class="editable featurette-heading"  ndType="header" contenteditable="false">Oh yeah, it is that good. <span class="text-muted">See for yourself.</span></h2>' +
                         '<p page-block class="editable lead" contenteditable="false" ndType="paragraph">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>' +
@@ -92,7 +92,7 @@ angular.module('app').service('htmlWidgets', function () {
     };
 
     this.getTextLargeHTML = function () {
-        return '<div page-block class="container-fluid featurette ndContainer"  ndType="container" >' +
+        return '<div page-block class="container-fluid featurette ndContainer textLarge"  ndType="container" >' +
                     '<h2 page-block class="editable featurette-heading"  ndType="header" contenteditable="false">Oh yeah, it is that good. <span class="text-muted">See for yourself.</span></h2>' +
                     '<p page-block class="editable lead" contenteditable="false" ndType="paragraph">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>' +
                     '<div page-block class="Block500" ndType="Block500" drop="onDropObject($data, $event, \'order\')" drop-effect="copy" drop-accept="[\'json/custom-object\',\'json/column\']" ></div>' +
@@ -101,7 +101,7 @@ angular.module('app').service('htmlWidgets', function () {
     };
 
     this.getTabsHTML = function (id, tabs) {
-        var theHTML = '<div page-block id="' + id + '" class="container-fluid ndContainer"  ndType="tabsContainer" >' +
+        var theHTML = '<div page-block id="' + id + '" class="container-fluid ndContainer Tabs"  ndType="tabsContainer" >' +
                             '<div class="nav-tabs-justified ng-isolate-scope">' +
                                 '<ul id="' + id + '_HEADER" class="nav nav-tabs" ng-class="{\'nav-stacked\': vertical, \'nav-justified\': justified}">';
         for (const t in tabs) {
