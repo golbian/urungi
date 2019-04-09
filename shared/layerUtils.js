@@ -27,9 +27,7 @@
             if (element === undefined) {
                 throw new Error('Error in custom expression, element not found: #' + elementID);
             }
-            if (elements.find(e => e.elementID === elementID)) {
-
-            } else {
+            if (!elements.find(e => e.elementID === elementID)) {
                 elements.push(element);
             }
         }
