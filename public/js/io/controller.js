@@ -51,6 +51,7 @@ angular.module('app').controller('ioCtrl', function ($scope, $q, connection, $ro
             } catch (err) {
                 console.log('invalid file format');
                 console.log(err);
+                noty({ text: 'Import failure: ' + err, timeout: 3000, type: 'error' });
                 $scope.importFile = undefined;
             }
             $scope.$digest();
